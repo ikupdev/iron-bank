@@ -1,0 +1,22 @@
+
+spring:
+  application:
+    name: money-raven
+  datasource:
+    url: jdbc:h2:~/test1
+    platform: org.hibernate.dialect.H2Dialect
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  h2:
+    console:
+      enabled: true
+ironbank:
+  returning:
+    - Targarian
+server:
+  port: 80
