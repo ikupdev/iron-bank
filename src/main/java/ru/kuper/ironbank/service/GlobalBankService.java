@@ -64,9 +64,13 @@ public class GlobalBankService {
     }
 
     private void setBankEntity() {
-        setBank(moneyDao.findByName("Braavos Bank").orElseGet(() -> {
-            throw new IllegalArgumentException("Bank does not exist!");
-        }));
+        Optional<Bank> braavosBankCandidate = moneyDao.findByName("Braavos Bank");
+        if (braavosBankCandidate.isPresent()) {
+            setBank(braavosBankCandidate.get());
+        } else {
+            Bank braavosBank = moneyDao.save(new Bank("Braavos Bank", 1_000_000L));
+            setBank(braavosBank);
+        }
     }
 
 }
