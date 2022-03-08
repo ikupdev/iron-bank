@@ -1,4 +1,4 @@
-package ru.kuper;
+package ru.kuper.raven;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;

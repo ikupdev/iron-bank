@@ -1,4 +1,4 @@
-package ru.kuper;
+package ru.kuper.raven;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class IronConfig {
 
     @Bean
+    @ConditionOnProduction
     public RavenListener ravenListener() {
         return new RavenListener();
     }
