@@ -18,7 +18,7 @@ public class TransferMoneyService {
     private final GlobalBankService globalBankService;
     private final MoneyDao moneyDao;
     private final ProphetProperties prophetProperties;
-    private final NameBasedProphetService nameBasedProphetService;
+    private final ProphetService prophetService;
 
     public long transfer(String targetName, long amount) {
         Optional<Bank> bankEntry = moneyDao.findByName(targetName);
@@ -31,7 +31,7 @@ public class TransferMoneyService {
         if (prophetProperties.getReturning().stream().noneMatch(s -> bankEntry.get().getName().equals(s))) {
             return -1;
         } else {
-            if (nameBasedProphetService.willSurvive(targetName)) {
+            if (prophetService.willSurvive(targetName)) {
                 return globalBankService.issue(amount, targetName);
             }
             return -1;

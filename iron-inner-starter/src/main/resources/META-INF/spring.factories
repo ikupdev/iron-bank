@@ -1,1 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=ru.kuper.raven.IronConfig
+org.springframework.context.ApplicationContextInitializer=ru.kuper.raven.ProfileCheckApplicationContextInitializer
+org.springframework.boot.env.EnvironmentPostProcessor=ru.kuper.raven.ProfileDetectorEPP
