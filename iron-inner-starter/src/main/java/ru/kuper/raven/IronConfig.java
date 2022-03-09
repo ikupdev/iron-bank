@@ -16,7 +16,7 @@ public class IronConfig {
 
     @Bean
     @ConditionOnProduction
-    @ConditionalOnProperty("raven.where")
+    @ConditionalOnRaven
     @ConditionalOnMissingBean
     public RavenListener ravenListener(RavenProperties rp) {
         return new RavenListener(rp);

@@ -9,7 +9,7 @@ import ru.kuper.raven.RavenProperties;
  * @author Ilya V. Kupriyanov
  * @version 09.03.2022
  */
-@Component
+//@Component
 public class MyRavenListener extends RavenListener {
     public MyRavenListener(RavenProperties ravenProperties) {
         super(ravenProperties);
@@ -17,6 +17,6 @@ public class MyRavenListener extends RavenListener {
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        System.out.println("event = " + event);
+        System.out.println("MyRavenListener event = " + event);
     }
 }
