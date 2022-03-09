@@ -1,5 +1,6 @@
 package ru.kuper.raven;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +17,7 @@ public class IronConfig {
     @Bean
     @ConditionOnProduction
     @ConditionalOnProperty("raven.where")
+    @ConditionalOnMissingBean
     public RavenListener ravenListener(RavenProperties rp) {
         return new RavenListener(rp);
     }
