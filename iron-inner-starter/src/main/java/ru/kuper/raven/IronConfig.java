@@ -16,8 +16,8 @@ public class IronConfig {
     @Bean
     @ConditionOnProduction
     @ConditionalOnProperty("raven.where")
-    public RavenListener ravenListener() {
-        return new RavenListener();
+    public RavenListener ravenListener(RavenProperties rp) {
+        return new RavenListener(rp);
     }
 
 }
